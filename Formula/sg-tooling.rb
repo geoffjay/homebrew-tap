@@ -2,12 +2,12 @@
 class SgTooling < Formula
   desc "Developer tooling"
   homepage "https://github.com/geoffjay/7g-tooling"
-  version "0.1.5-beta"
+  version "0.1.6-beta"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/geoffjay/7g-tooling/releases/download/v0.1.5-beta/7g-tooling_Darwin_x86_64.tar.gz"
-    sha256 "fd7c574241faef63479c5055b0e2c76bd0a62a53a08d43382e835e60a753df27"
+    url "https://github.com/geoffjay/7g-tooling/releases/download/v0.1.6-beta/7g-tooling_Darwin_x86_64.tar.gz"
+    sha256 "f8120e305138b67ebdf08c199652754c05d6bbe05ed8021a5c446964ead99c58"
   elsif OS.linux?
   end
   
