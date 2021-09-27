@@ -5,24 +5,24 @@
 class Dotfiles < Formula
   desc "Developer tooling"
   homepage "https://github.com/geoffjay/dotfiles"
-  version "0.1.2-beta"
+  version "0.2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/geoffjay/dotfiles/releases/download/v0.1.2-beta/dotfiles_Darwin_x86_64.tar.gz"
-      sha256 "89aaf08e28edc443620c489037aff5b0dc3ce719b0047e027f6a3a6d04201cc1"
+      url "https://github.com/geoffjay/dotfiles/releases/download/v0.2.0/dotfiles_Darwin_x86_64.tar.gz"
+      sha256 "375332b8560c5172bf2b9f9e3370abffc3df89ffcde92070958f545ef5ddd95c"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/geoffjay/dotfiles/releases/download/v0.1.2-beta/dotfiles_linux_x86_64.tar.gz"
-      sha256 "a264590e750fc525a2e3b34919d58dc53d2464376c4e7b3f4643078b9d5be7dc"
+      url "https://github.com/geoffjay/dotfiles/releases/download/v0.2.0/dotfiles_linux_x86_64.tar.gz"
+      sha256 "dcad0c4c83ab34da1f15f99893ab8e43164a8e218bb5d0977a2d9817ec9d1c49"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/geoffjay/dotfiles/releases/download/v0.1.2-beta/dotfiles_linux_armv6.tar.gz"
-      sha256 "9ff48a4123c4104d4c3d5309f13237ce5c9af37e404c1d7f73656fca4cb9dcc1"
+      url "https://github.com/geoffjay/dotfiles/releases/download/v0.2.0/dotfiles_linux_armv6.tar.gz"
+      sha256 "e8edd17321180fca572ee7f0d05a82a24201eb554e08ad61ae48c0e5eb395d10"
     end
   end
 
