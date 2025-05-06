@@ -3,6 +3,6 @@
 Homebrew Formulae to @geoffjay binaries, powered by @goreleaser
 
 ```sh
-brew install geoffjay/tap/7g-tooling
 brew install geoffjay/tap/dotfiles
+brew install geoffjay/tap/git-utils
 ```
