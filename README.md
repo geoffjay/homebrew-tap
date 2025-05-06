@@ -1,6 +1,6 @@
-# homebrew-tap [![Powered By: GoReleaser](https://img.shields.io/badge/powered%20by-goreleaser-green.svg?style=flat-square)](https://github.com/geoffjay)
+# homebrew-tap
 
-Homebrew Formulae to @geoffjay binaries, powered by @goreleaser
+Homebrew Formulae to @geoffjay binaries.
 
 ```sh
 brew install geoffjay/tap/dotfiles
