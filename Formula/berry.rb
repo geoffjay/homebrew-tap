@@ -12,11 +12,9 @@ class Berry < Formula
 
   def install
     system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Create a wrapper script that loads environment variables before starting the server
-    wrapper = bin / "berry-server"
-    wrapper.write <<~SH
+    (libexec / "bin/berry-server").write <<~SH
       #!/bin/bash
       set -e
 
@@ -28,9 +26,11 @@ class Berry < Formula
         set +a
       fi
 
-      exec "#{opt_bin}/berry" serve --foreground --port "${PORT:-4114}"
+      exec "#{opt_libexec}/bin/berry" serve --foreground --port "${PORT:-4114}"
     SH
-    wrapper.chmod 0755
+    (libexec / "bin/berry-server").chmod 0755
+
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   def post_install
