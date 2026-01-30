@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 cask 'persona' do
-  version '0.1.0'
+  version '0.2.0'
 
   on_arm do
     url "https://github.com/geoffjay/persona/releases/download/v#{version}/Persona-aarch64-apple-darwin.zip"
@@ -22,6 +22,7 @@ cask 'persona' do
   binary "#{appdir}/Persona.app/Contents/MacOS/persona"
 
   zap trash: [
+    '~/Library/Application Support/persona',
     '~/.config/persona'
   ]
 end
