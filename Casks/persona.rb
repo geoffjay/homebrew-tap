@@ -6,12 +6,12 @@ cask 'persona' do
 
   on_arm do
     url "https://github.com/geoffjay/persona/releases/download/v#{version}/Persona-aarch64-apple-darwin.zip"
-    sha256 'PLACEHOLDER_ARM64_SHA256'
+    sha256 '8d4f7a2158969a935de9dc5ea2e84f3af9af936b78d8bbf9e4d09b97f7bce2ee'
   end
 
   on_intel do
     url "https://github.com/geoffjay/persona/releases/download/v#{version}/Persona-x86_64-apple-darwin.zip"
-    sha256 'PLACEHOLDER_X86_64_SHA256'
+    sha256 '3c03304409a060b4c681b9e35450911f6b8a6c23d55e38d51f51fab4d677007f'
   end
 
   name 'Persona'
