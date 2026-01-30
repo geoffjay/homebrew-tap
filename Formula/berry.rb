@@ -2,19 +2,19 @@
 # frozen_string_literal: true
 
 class Berry < Formula
-  desc "Memory storage system for AI tooling with MCP support"
-  homepage "https://github.com/geoffjay/berry"
-  url "https://registry.npmjs.org/@hlfbkd/berry/-/berry-1.9.0.tgz"
-  sha256 "ef5dfa22643bdc8e1f41f34022579d716089266c390527a06bc845f736b7a829"
-  license "MIT"
+  desc 'Memory storage system for AI tooling with MCP support'
+  homepage 'https://github.com/geoffjay/berry'
+  url 'https://registry.npmjs.org/@hlfbkd/berry/-/berry-1.9.0.tgz'
+  sha256 'ef5dfa22643bdc8e1f41f34022579d716089266c390527a06bc845f736b7a829'
+  license 'MIT'
 
-  depends_on "node"
+  depends_on 'node'
 
   def install
-    system "npm", "install", *std_npm_args
+    system 'npm', 'install', *std_npm_args
 
     # Create a wrapper script that loads environment variables before starting the server
-    (libexec / "bin/berry-server").write <<~SH
+    (libexec / 'bin/berry-server').write <<~SH
       #!/bin/bash
       set -e
 
@@ -28,19 +28,19 @@ class Berry < Formula
 
       exec "#{opt_libexec}/bin/berry" serve --foreground --port "${PORT:-4114}"
     SH
-    (libexec / "bin/berry-server").chmod 0755
+    (libexec / 'bin/berry-server').chmod 0o755
 
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   def post_install
     # Create log and state directories
-    (var / "log/berry").mkpath
-    (var / "berry").mkpath
+    (var / 'log/berry').mkpath
+    (var / 'berry').mkpath
 
     # Create server environment config directory and default env file
-    (etc / "berry").mkpath
-    env_file = etc / "berry/server.env"
+    (etc / 'berry').mkpath
+    env_file = etc / 'berry/server.env'
     unless env_file.exist?
       env_file.write <<~ENV
         # Berry server environment configuration
@@ -62,10 +62,10 @@ class Berry < Formula
     end
 
     # Create user CLI config directory and default config if it doesn't exist
-    config_dir = Pathname.new(Dir.home) / ".config/berry"
+    config_dir = Pathname.new(Dir.home) / '.config/berry'
     config_dir.mkpath
 
-    config_file = config_dir / "config.jsonc"
+    config_file = config_dir / 'config.jsonc'
     return if config_file.exist?
 
     config_file.write <<~JSON
@@ -76,18 +76,18 @@ class Berry < Formula
         },
         "defaults": {
           "type": "information",
-          "createdBy": "#{ENV["USER"]}"
+          "createdBy": "#{ENV['USER']}"
         }
       }
     JSON
   end
 
   service do
-    run [opt_bin / "berry-server"]
+    run [opt_bin / 'berry-server']
     keep_alive true
-    working_dir var / "berry"
-    log_path var / "log/berry/server.log"
-    error_log_path var / "log/berry/server.error.log"
+    working_dir var / 'berry'
+    log_path var / 'log/berry/server.log'
+    error_log_path var / 'log/berry/server.error.log'
   end
 
   def caveats

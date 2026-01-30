@@ -1,6 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 
+# CLI-only installation. For the GUI app, use: brew install --cask geoffjay/tap/persona
 class Persona < Formula
   desc 'A framework for stateful AI-assisted conversations with persistent memory'
   homepage 'https://github.com/geoffjay/persona'
@@ -24,6 +25,6 @@ class Persona < Formula
   end
 
   test do
-    assert_predicate bin/'persona', :exist?
+    assert_predicate bin / 'persona', :exist?
   end
 end
