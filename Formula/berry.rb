@@ -3,18 +3,39 @@
 
 class Berry < Formula
   desc 'Memory storage system for AI tooling with MCP support'
-  homepage 'https://github.com/geoffjay/berry'
-  url 'https://registry.npmjs.org/@hlfbkd/berry/-/berry-1.9.0.tgz'
-  sha256 'ef5dfa22643bdc8e1f41f34022579d716089266c390527a06bc845f736b7a829'
+  homepage 'https://github.com/geoffjay/berry-rs'
+  version '0.1.0'
   license 'MIT'
 
-  depends_on 'node'
+  on_macos do
+    on_arm do
+      url 'https://github.com/geoffjay/berry-rs/releases/download/v0.1.0/berry-darwin-arm64.tar.gz'
+      sha256 '05163ae4586becba16db68125c8edc83b6d33d8268e32f23a8c645a8dc0b58c2'
+    end
+
+    on_intel do
+      url 'https://github.com/geoffjay/berry-rs/releases/download/v0.1.0/berry-darwin-amd64.tar.gz'
+      sha256 '5ca64977aacf0bed7eb07c75cdc5add36b682924c75c510b3361b3f40a5ced62'
+    end
+  end
+
+  on_linux do
+    on_arm do
+      url 'https://github.com/geoffjay/berry-rs/releases/download/v0.1.0/berry-linux-arm64.tar.gz'
+      sha256 'bb974f70e0afba6f9e0581dde783a6e71cf96e696b69810a04ed260cef6d0f91'
+    end
+
+    on_intel do
+      url 'https://github.com/geoffjay/berry-rs/releases/download/v0.1.0/berry-linux-amd64.tar.gz'
+      sha256 '438ffe490f2d57c12e7679dd98c846884c29957806f70892ef1b5cc2f25bea19'
+    end
+  end
 
   def install
-    system 'npm', 'install', *std_npm_args
+    bin.install 'berry'
 
     # Create a wrapper script that loads environment variables before starting the server
-    (libexec / 'bin/berry-server').write <<~SH
+    (libexec / 'berry-server').write <<~SH
       #!/bin/bash
       set -e
 
@@ -26,11 +47,11 @@ class Berry < Formula
         set +a
       fi
 
-      exec "#{opt_libexec}/bin/berry" serve --foreground --port "${PORT:-4114}"
+      exec "#{opt_bin}/berry" serve --port "${PORT:-4114}"
     SH
-    (libexec / 'bin/berry-server').chmod 0o755
+    (libexec / 'berry-server').chmod 0o755
 
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink libexec / 'berry-server'
   end
 
   def post_install
@@ -46,6 +67,9 @@ class Berry < Formula
         # Berry server environment configuration
         # Uncomment and configure for your ChromaDB setup
 
+        # Berry server log level (default: info)
+        BERRY_LOG=info
+
         # Server port (default: 4114)
         PORT=4114
 
@@ -55,9 +79,16 @@ class Berry < Formula
 
         # Cloud ChromaDB (uncomment and configure to use instead of local)
         # CHROMA_PROVIDER=cloud
+        # CHROMA_URL=https://api.trychroma.com
         # CHROMA_API_KEY=your-api-key
         # CHROMA_TENANT=your-tenant
-        # CHROMA_DATABASE=your-database
+        # CHROMA_DATABASE=berry # or your preferred database name
+        # CHROMA_COLLECTION=memories # or your preferred collection name
+
+        # Embedding configuration (using local Ollama)
+        EMBEDDING_PROVIDER=openai
+        EMBEDDING_MODEL=all-minilm
+        EMBEDDING_BASE_URL=http://localhost:11434/v1
       ENV
     end
 
