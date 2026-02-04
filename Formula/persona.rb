@@ -5,16 +5,16 @@
 class Persona < Formula
   desc 'A framework for stateful AI-assisted conversations with persistent memory'
   homepage 'https://github.com/geoffjay/persona'
-  version '0.2.0'
+  version '0.3.0'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.arm?
-      url 'https://github.com/geoffjay/persona/releases/download/v0.2.0/persona-aarch64-apple-darwin.tar.gz'
-      sha256 '779742094300548a772a994ac4396631bc08b7f60b280974364f63164760836e'
+      url "https://github.com/geoffjay/persona/releases/download/v#{version}/persona-aarch64-apple-darwin.tar.gz"
+      sha256 '1598e3dfd1b0565699cc63c2aa2f2960081ae5ea4a4248d70a39d8ba8b12f911'
     elsif Hardware::CPU.intel?
-      url 'https://github.com/geoffjay/persona/releases/download/v0.2.0/persona-x86_64-apple-darwin.tar.gz'
-      sha256 'ed838df6223b82d73e97a3ea45d7b23c749725c22915a9969bdf22ccea7883ed'
+      url "https://github.com/geoffjay/persona/releases/download/v#{version}/persona-x86_64-apple-darwin.tar.gz"
+      sha256 '3063355a38b36b07e0bc8eca90714017135dd25793b27fda95b71cc73009bf38'
     end
   end
 
