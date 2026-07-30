@@ -5,21 +5,21 @@
 class Horde < Formula
   desc "Distributed multi-agent system built on the Google V2 ADK"
   homepage "https://github.com/geoffjay/horde"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/geoffjay/horde/releases/download/v0.3.0/horde_0.3.0_macOS_amd64.tar.gz"
-      sha256 "e324295b99cac45ff7ea4d08b8210bbc2c60b301961b7e37f6348a33fa92bc1a"
+      url "https://github.com/geoffjay/horde/releases/download/v0.4.0/horde_0.4.0_macOS_amd64.tar.gz"
+      sha256 "0fb4281f7656d8164957804897ba2a07d3ffb6311200186069473384bb9435f7"
 
       define_method(:install) do
         bin.install "horde"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/geoffjay/horde/releases/download/v0.3.0/horde_0.3.0_macOS_arm64.tar.gz"
-      sha256 "c394a82f778b4aace3cf8c8885ee9cd1dd79bf3affeefd7caf4870bdc37843f3"
+      url "https://github.com/geoffjay/horde/releases/download/v0.4.0/horde_0.4.0_macOS_arm64.tar.gz"
+      sha256 "67340b8ac078c169893f7618d104cf28382fdfa326d10294d55072dd80d09622"
 
       define_method(:install) do
         bin.install "horde"
@@ -29,15 +29,15 @@ class Horde < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/geoffjay/horde/releases/download/v0.3.0/horde_0.3.0_linux_amd64.tar.gz"
-      sha256 "e0db3c7e47138dd623bd1fda91b4c771c38f5576ddadd7ff3aa6c76eda405a5c"
+      url "https://github.com/geoffjay/horde/releases/download/v0.4.0/horde_0.4.0_linux_amd64.tar.gz"
+      sha256 "fd91a43727794a123ede2daf6ab9841a3ab684f277c8f289aba0696b6f1261fd"
       define_method(:install) do
         bin.install "horde"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/geoffjay/horde/releases/download/v0.3.0/horde_0.3.0_linux_arm64.tar.gz"
-      sha256 "b5f50ab40ddd949a2c240415f55801194e0fe831a2b8a705c22a3cebe4794742"
+      url "https://github.com/geoffjay/horde/releases/download/v0.4.0/horde_0.4.0_linux_arm64.tar.gz"
+      sha256 "1bd130219b198187cf0dda42c03a94b522695ee50488d3c3343eed4382792ce7"
       define_method(:install) do
         bin.install "horde"
       end
