@@ -12,28 +12,28 @@
 class Nemo < Formula
   desc "Configuration-driven, GPU-accelerated desktop application framework"
   homepage "https://github.com/geoffjay/nemo"
-  version "0.9.3"
+  version "0.9.4"
   license "MIT OR Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/geoffjay/nemo/releases/download/v#{version}/nemo-aarch64-apple-darwin.tar.gz"
-      sha256 "5af41727fefc84add3da2797caf8d6aeccc81165023bf9635983cb0ee5201882"
+      sha256 "def1a6ef96ab54738da6bd5ceff1519e92453227960ad97107500ff31b67627f"
     end
     on_intel do
       url "https://github.com/geoffjay/nemo/releases/download/v#{version}/nemo-x86_64-apple-darwin.tar.gz"
-      sha256 "4ed3ea7e69fc92a3d059ce07e232544f37f9f65cdfc25de30272c8f9022f0a52"
+      sha256 "38cdc4ce23090e31edb4a434eef0b5f8ce6ec86d77e53c11a5518257160e7635"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/geoffjay/nemo/releases/download/v#{version}/nemo-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "e1b3707301950e375b01032214546f42146673dacf91d5e83bb2a1f8d9bfe33a"
+      sha256 "78d6079fe162cd0ca0cf3521818cf767e8e1dace2875f476b824500d3ffcd9ab"
     end
     on_intel do
       url "https://github.com/geoffjay/nemo/releases/download/v#{version}/nemo-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "02abd4dbe2f8d3a6e2588e8836a28b0dda38c31396b444a4e70b766f964e3335"
+      sha256 "8e10ccb67ed8dc646896719bbc9bc3d59540a8c8842949cab13974aa551e5e4f"
     end
   end
 
