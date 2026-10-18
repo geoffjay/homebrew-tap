@@ -12,28 +12,28 @@
 class Tower < Formula
   desc "Control and visibility for herds of coding agents"
   homepage "https://github.com/geoffjay/tower"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT OR Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/geoffjay/tower/releases/download/v#{version}/tower-aarch64-apple-darwin.tar.gz"
-      sha256 "617b0b464f81143d6c146e2db0fc10668750aefb97334a00b52d7d24e9b0eda5"
+      sha256 "6e4242988af5745eca5054964a7dca68d2cc1d9a76799b43d308dded2073bf5f"
     end
     on_intel do
       url "https://github.com/geoffjay/tower/releases/download/v#{version}/tower-x86_64-apple-darwin.tar.gz"
-      sha256 "49852a8707452c32d7dd6cba7f77221f97a8058acd3e38832281d124618766ba"
+      sha256 "cb9ead32e6e078adc2e0a3692f9afa5dc51e496b38e919bdbed437ffe559a999"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/geoffjay/tower/releases/download/v#{version}/tower-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "5addeb7cad17feef707822c98a008bb5bb6ddf000e26becf3d641b4f6de49f9b"
+      sha256 "88d54c7fe88c04c8f66db0af4a9d9b21e3ea90660a2596f409c0185ba1ed9aa6"
     end
     on_intel do
       url "https://github.com/geoffjay/tower/releases/download/v#{version}/tower-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "6697bff9c20c78b9430974461a2f08266317d01f4c87a115e448307d5dda7d4d"
+      sha256 "637cf8c331a48b1b39fb0d7a7cdcbf854e12e76eeea31137e1d70c11e127d90c"
     end
   end
 
